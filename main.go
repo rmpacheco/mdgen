@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	port := os.GetEnv("PORT")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
@@ -16,7 +16,7 @@ func main() {
 	http.ListenAndServe(":"+port, nil)
 }
 
-func GenerateMarkdown(rw http.ResponseWriter, r *HttpRequest) {
+func GenerateMarkdown(rw http.ResponseWriter, r *http.Request) {
 	markdown := blackfriday.MarkdownCommon([]byte(r.FormValue("body")))
 	rw.Write(markdown)
 }
