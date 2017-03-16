@@ -9,6 +9,7 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
+		// default to port 8080.  yes, this is a stupid comment. i'm testing something
 		port = "8080"
 	}
 	http.HandleFunc("/markdown", GenerateMarkdown)
